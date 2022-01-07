@@ -1,6 +1,6 @@
 package dev.alexengrig.sample.customer.service;
 
-import dev.alexengrig.sample.customer.CustomerRepository;
+import dev.alexengrig.sample.customer.repository.CustomerRepository;
 import dev.alexengrig.sample.customer.domain.Customer;
 import dev.alexengrig.sample.customer.entity.CustomerEntity;
 import dev.alexengrig.sample.customer.mapper.CustomerMapper;
