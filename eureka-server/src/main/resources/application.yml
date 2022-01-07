@@ -1,0 +1,15 @@
+server:
+  port: 8761
+
+application:
+  title: @project.name@
+  version: @project.version@
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
