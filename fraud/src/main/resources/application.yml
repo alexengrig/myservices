@@ -8,3 +8,15 @@ application:
 spring:
   application:
     name: fraud
+  datasource:
+    username: user
+    password: pass
+    url: jdbc:postgresql://localhost:5432/fraud
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        fortmat_sql: true
