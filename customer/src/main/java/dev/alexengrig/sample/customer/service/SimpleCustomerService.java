@@ -3,8 +3,8 @@ package dev.alexengrig.sample.customer.service;
 import dev.alexengrig.sample.customer.CustomerRepository;
 import dev.alexengrig.sample.customer.domain.Customer;
 import dev.alexengrig.sample.customer.entity.CustomerEntity;
+import dev.alexengrig.sample.customer.mapper.CustomerMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 public class SimpleCustomerService implements CustomerService {
 
     private final CustomerRepository repository;
-    private final Converter<Customer, CustomerEntity> customerEntityConverter;
+    private final CustomerMapper mapper;
 
     @Override
     public void create(Customer customer) {
-        CustomerEntity entity = customerEntityConverter.convert(customer);
+        CustomerEntity entity = mapper.domainToEntity(customer);
         repository.save(entity);
     }
 
