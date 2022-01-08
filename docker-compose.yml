@@ -11,6 +11,12 @@ services:
     ports:
       - "5432:5432"
     restart: unless-stopped
+  rabbitmq:
+    container_name: myservices-rabbitmq
+    image: rabbitmq:management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
   zipkin:
     container_name: myservices-zipkin
     image: openzipkin/zipkin
