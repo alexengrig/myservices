@@ -7,7 +7,6 @@ import dev.alexengrig.sample.customer.mapper.CustomerMapper;
 import dev.alexengrig.sample.customer.repository.CustomerRepository;
 import dev.alexengrig.sample.fraud.client.FraudClient;
 import dev.alexengrig.sample.fraud.payload.FraudCheckResponse;
-import dev.alexengrig.sample.notification.client.NotificationClient;
 import dev.alexengrig.sample.notification.payload.NotificationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
