@@ -14,6 +14,21 @@
       "name": "application.sender",
       "type": "java.lang.String",
       "description": "Notification sender."
+    },
+    {
+      "name": "application.rabbitmq.queues.notification",
+      "type": "java.lang.String",
+      "description": "RabbitMQ notification queue."
+    },
+    {
+      "name": "application.rabbitmq.exchanges.internal",
+      "type": "java.lang.String",
+      "description": "RabbitMQ internal exchange."
+    },
+    {
+      "name": "application.rabbitmq.routing-keys.internal-notification",
+      "type": "java.lang.String",
+      "description": "RabbitMQ internal notification routing-key."
     }
   ]
 }
