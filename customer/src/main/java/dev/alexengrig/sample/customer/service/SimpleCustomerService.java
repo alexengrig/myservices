@@ -1,5 +1,6 @@
 package dev.alexengrig.sample.customer.service;
 
+import dev.alexengrig.sample.amqp.producer.AmqpMessageProducer;
 import dev.alexengrig.sample.customer.domain.Customer;
 import dev.alexengrig.sample.customer.entity.CustomerEntity;
 import dev.alexengrig.sample.customer.mapper.CustomerMapper;
@@ -18,7 +19,7 @@ public class SimpleCustomerService implements CustomerService {
     private final CustomerRepository repository;
     private final CustomerMapper mapper;
     private final FraudClient fraudClient;
-    private final NotificationClient notificationClient;
+    private final AmqpMessageProducer amqpMessageProducer;
 
     @Override
     public void create(Customer customer) {
@@ -28,11 +29,15 @@ public class SimpleCustomerService implements CustomerService {
         if (checkResponse.isFraudster()) {
             throw new IllegalArgumentException("fraudster");
         }
-        notificationClient.send(NotificationRequest.builder()
+        NotificationRequest notification = NotificationRequest.builder()
                 .customerId(entity.getId())
                 .email(entity.getEmail())
                 .message("Hi " + entity.getFirstName())
-                .build());
+                .build();
+        amqpMessageProducer.publish(
+                "internal.exchange",
+                "internal.notification.routing-key",
+                notification);
     }
 
 }

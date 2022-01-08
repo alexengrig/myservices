@@ -16,6 +16,10 @@
     <dependencies>
         <dependency>
             <groupId>dev.alexengrig.sample</groupId>
+            <artifactId>amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>dev.alexengrig.sample</groupId>
             <artifactId>fraud-client</artifactId>
         </dependency>
         <dependency>
@@ -50,6 +54,11 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
         <dependency>
