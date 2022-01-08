@@ -1,7 +1,18 @@
 package dev.alexengrig.sample.customer.payload;
 
-public record CustomerRegistrationRequest(
-        String firstName,
-        String lastName,
-        String email) {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public final class CustomerRegistrationRequest {
+
+    private String firstName;
+    private String lastName;
+    private String email;
+
 }
