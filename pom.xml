@@ -19,6 +19,7 @@
         <module>notification</module>
         <module>notification-payload</module>
         <module>notification-client</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>
