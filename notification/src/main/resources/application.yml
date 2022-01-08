@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+application:
+  title: @project.name@
+  version: @project.version@
+  sender: G-Man
+
+spring:
+  application:
+    name: notification
+  datasource:
+    username: user
+    password: pass
+    url: jdbc:postgresql://localhost:5432/notification
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        fortmat_sql: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

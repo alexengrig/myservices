@@ -16,6 +16,9 @@
         <module>fraud</module>
         <module>fraud-payload</module>
         <module>fraud-client</module>
+        <module>notification</module>
+        <module>notification-payload</module>
+        <module>notification-client</module>
     </modules>
 
     <properties>
@@ -40,6 +43,16 @@
             <dependency>
                 <groupId>dev.alexengrig.sample</groupId>
                 <artifactId>fraud-payload</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.alexengrig.sample</groupId>
+                <artifactId>notification-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.alexengrig.sample</groupId>
+                <artifactId>notification-payload</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!-- Spring -->
