@@ -6,6 +6,8 @@ import dev.alexengrig.sample.customer.mapper.CustomerMapper;
 import dev.alexengrig.sample.customer.repository.CustomerRepository;
 import dev.alexengrig.sample.fraud.client.FraudClient;
 import dev.alexengrig.sample.fraud.payload.FraudCheckResponse;
+import dev.alexengrig.sample.notification.client.NotificationClient;
+import dev.alexengrig.sample.notification.payload.NotificationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ public class SimpleCustomerService implements CustomerService {
     private final CustomerRepository repository;
     private final CustomerMapper mapper;
     private final FraudClient fraudClient;
+    private final NotificationClient notificationClient;
 
     @Override
     public void create(Customer customer) {
@@ -25,6 +28,11 @@ public class SimpleCustomerService implements CustomerService {
         if (checkResponse.isFraudster()) {
             throw new IllegalArgumentException("fraudster");
         }
+        notificationClient.send(NotificationRequest.builder()
+                .customerId(entity.getId())
+                .email(entity.getEmail())
+                .message("Hi " + entity.getFirstName())
+                .build());
     }
 
 }
