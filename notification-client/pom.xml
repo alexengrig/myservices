@@ -17,7 +17,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.alexengrig.sample</groupId>
+            <groupId>dev.alexengrig.myservices</groupId>
             <artifactId>notification-payload</artifactId>
         </dependency>
 

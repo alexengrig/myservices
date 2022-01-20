@@ -16,15 +16,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.alexengrig.sample</groupId>
+            <groupId>dev.alexengrig.myservices</groupId>
             <artifactId>amqp</artifactId>
         </dependency>
         <dependency>
-            <groupId>dev.alexengrig.sample</groupId>
+            <groupId>dev.alexengrig.myservices</groupId>
             <artifactId>fraud-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>dev.alexengrig.sample</groupId>
+            <groupId>dev.alexengrig.myservices</groupId>
             <artifactId>notification-client</artifactId>
         </dependency>
 

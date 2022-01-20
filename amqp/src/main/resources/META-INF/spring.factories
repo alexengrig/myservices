@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  dev.alexengrig.sample.amqp.config.AmqpAutoConfiguration
+  dev.alexengrig.myservices.amqp.config.AmqpAutoConfiguration
