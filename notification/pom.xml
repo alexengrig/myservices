@@ -13,6 +13,7 @@
     <artifactId>notification</artifactId>
     <name>notification</name>
     <description>notification</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

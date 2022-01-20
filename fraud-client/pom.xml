@@ -13,6 +13,7 @@
     <artifactId>fraud-client</artifactId>
     <name>fraud-client</name>
     <description>fraud-client</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

@@ -13,6 +13,7 @@
     <artifactId>fraud</artifactId>
     <name>fraud</name>
     <description>fraud</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

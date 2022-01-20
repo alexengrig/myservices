@@ -12,6 +12,7 @@
     <artifactId>customer</artifactId>
     <name>customer</name>
     <description>customer</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

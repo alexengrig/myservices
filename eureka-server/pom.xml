@@ -13,6 +13,7 @@
     <artifactId>eureka-server</artifactId>
     <name>eureka-server</name>
     <description>eureka-server</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

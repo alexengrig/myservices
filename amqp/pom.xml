@@ -13,6 +13,7 @@
     <artifactId>amqp</artifactId>
     <name>amqp</name>
     <description>amqp</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

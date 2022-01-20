@@ -13,5 +13,6 @@
     <artifactId>notification-payload</artifactId>
     <name>notification-payload</name>
     <description>notification-payload</description>
+    <packaging>jar</packaging>
 
 </project>

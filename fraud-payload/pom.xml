@@ -13,5 +13,6 @@
     <artifactId>fraud-payload</artifactId>
     <name>fraud-payload</name>
     <description>fraud-payload</description>
+    <packaging>jar</packaging>
 
 </project>
