@@ -10,6 +10,8 @@ services:
       - postgres:/data/postgres
     ports:
       - "5432:5432"
+    networks:
+      - postgres
     restart: unless-stopped
   rabbitmq:
     container_name: myservices-rabbitmq
@@ -17,11 +19,90 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+    networks:
+      - spring
   zipkin:
     container_name: myservices-zipkin
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
+    networks:
+      - spring
+  # myservices
+  eureka-server:
+    image: myservices/eureka-server:${MYSERVICES_VERSION}
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+  api-gateway:
+    image: myservices/api-gateway:${MYSERVICES_VERSION}
+    container_name: api-gateway
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
+  customer:
+    image: myservices/customer:${MYSERVICES_VERSION}
+    container_name: customer
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+      - rabbitmq
+  fraud:
+    image: myservices/fraud:${MYSERVICES_VERSION}
+    container_name: fraud
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+      - rabbitmq
+  notification:
+    image: myservices/notification:${MYSERVICES_VERSION}
+    container_name: notification
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+      - rabbitmq
+
+networks:
+  postgres:
+    driver: bridge
+  spring:
+    driver: bridge
 
 volumes:
   postgres:
