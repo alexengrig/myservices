@@ -1,0 +1,41 @@
+server:
+  port: 8082
+
+application:
+  title: @project.name@
+  version: @project.version@
+  sender: G-Man
+  rabbitmq:
+    queues:
+      notification: notification.queue
+    exchanges:
+      internal: internal.exchange
+    routing-keys:
+      internal-notification: internal.notification.routing-key
+
+spring:
+  application:
+    name: notification
+  datasource:
+    username: user
+    password: pass
+    url: jdbc:postgresql://postgres:5432/notification
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        fortmat_sql: true
+  rabbitmq:
+    addresses: rabbitmq:5672
+  zipkin:
+    base-url: http://zipkin:9411
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
