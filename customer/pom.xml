@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>myservices</artifactId>
-        <groupId>dev.alexengrig.sample</groupId>
+        <artifactId>parent</artifactId>
+        <groupId>dev.alexengrig.myservices</groupId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
 
