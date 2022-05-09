@@ -3,11 +3,13 @@ services:
     container_name: myservices-postgres
     image: postgres
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: myservices
+      POSTGRES_PASSWORD: myservices-pass
+      POSTGRES_DB_LIST: customer,fraud,notification
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
+      - ./postgres/init-scripts:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
     networks:
@@ -31,7 +33,7 @@ services:
   # myservices
   eureka-server:
     image: myservices/eureka-server:${MYSERVICES_VERSION}
-    container_name: eureka-server
+    container_name: myservices-eureka-server
     ports:
       - "8761:8761"
     environment:
@@ -42,7 +44,7 @@ services:
       - zipkin
   api-gateway:
     image: myservices/api-gateway:${MYSERVICES_VERSION}
-    container_name: api-gateway
+    container_name: myservices-api-gateway
     ports:
       - "8083:8083"
     environment:
@@ -54,7 +56,7 @@ services:
       - eureka-server
   customer:
     image: myservices/customer:${MYSERVICES_VERSION}
-    container_name: customer
+    container_name: myservices-customer
     ports:
       - "8080:8080"
     environment:
@@ -69,7 +71,7 @@ services:
       - rabbitmq
   fraud:
     image: myservices/fraud:${MYSERVICES_VERSION}
-    container_name: fraud
+    container_name: myservices-fraud
     ports:
       - "8081:8081"
     environment:
@@ -84,7 +86,7 @@ services:
       - rabbitmq
   notification:
     image: myservices/notification:${MYSERVICES_VERSION}
-    container_name: notification
+    container_name: myservices-notification
     ports:
       - "8082:8082"
     environment:
