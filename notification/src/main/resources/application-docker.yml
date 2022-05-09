@@ -17,8 +17,8 @@ spring:
   application:
     name: notification
   datasource:
-    username: user
-    password: pass
+    username: myservices
+    password: myservices-pass
     url: jdbc:postgresql://postgres:5432/notification
   jpa:
     show-sql: true

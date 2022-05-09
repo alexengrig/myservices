@@ -9,8 +9,8 @@ spring:
   application:
     name: fraud
   datasource:
-    username: user
-    password: pass
+    username: myservices
+    password: myservices-pass
     url: jdbc:postgresql://localhost:5432/fraud
   jpa:
     show-sql: true
